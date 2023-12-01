@@ -40,8 +40,6 @@ main{
     display: flex;
     
     flex-grow: 1;
-    /* margin-left: var(--marg); */
-    /* margin-top: var(--marg); */
     padding: 10px;
     align-items: center;
     flex-direction: column;
@@ -53,10 +51,11 @@ main{
 
 .txt{
     width: 100%;
+    margin-top: auto;
 }
 
 textarea{
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 10px;
     color: aliceblue;
     background-color: rgba(0, 0, 0, 0);
