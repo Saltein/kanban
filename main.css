@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body{
@@ -21,7 +22,12 @@ body{
     
     height: 70px;
     align-items: center;
+    justify-content: space-between;
     position: sticky;
+}
+
+.addColDiv{
+    display: flex;
 }
 
 #head a{
@@ -36,13 +42,17 @@ main{
     width: auto;
 }
 
+.columnName{
+    width: 200px;
+}
+
 .column{
     display: flex;
     
     flex-grow: 1;
     /* margin-left: var(--marg); */
     /* margin-top: var(--marg); */
-    padding: 10px;
+    /* padding: 10px; */
     align-items: center;
     flex-direction: column;
     min-width: 60px;
@@ -53,15 +63,22 @@ main{
 
 .txt{
     width: 100%;
+    padding-top: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.138) inset;
 }
 
 textarea{
-    width: 100%;
+    width: calc(100% - 20px);
     padding: 10px;
     color: aliceblue;
     background-color: rgba(0, 0, 0, 0);
     border-radius: 10px;
     border: 1px solid white;
+}
+
+.txt textarea{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .column p{
@@ -85,7 +102,7 @@ textarea{
 
 .b_o_t .block:hover{
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.483);
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
     transition: 0.3s;
 }
@@ -93,9 +110,14 @@ textarea{
 .block{
     display: flex;
     height: 50px;
-    margin-top: var(--marg);
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
 
     border-radius: 10px;
     
     justify-content: center;
+
+    background: rgba(240, 248, 255, 0.163);
+    transition: 0.3s;
 }

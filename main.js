@@ -4,22 +4,37 @@ function addNewColumn(){
         const container = document.getElementById("main1");
         const column = document.createElement("div");
         const name = document.createElement("p");
-        const block = document.createElement("div")
+        const block = document.createElement("div");
+        const txtblock = document.createElement("div");
+        const nameTA = document.createElement("textarea");
+        const discTA = document.createElement("textarea");
             
         column.className = "column";
         column.id = "col" + columnNumber;
         block.id = "blockOfTasks" + columnNumber;
-        block.className = "b_o_t"
+        block.className = "b_o_t";
+        txtblock.id = "txt" + columnNumber;
+        txtblock.className = "txt";
+        nameTA.className = "Name";
+        nameTA.id = "name" + columnNumber;
+        nameTA.rows = "1";
+        nameTA.placeholder = "Название задачи";
+        discTA.className = "Discription";
+        discTA.id = "discription1" + columnNumber;
+        discTA.placeholder = "Описание";
 
         name.textContent = "новый абоберт";
 
                     
         container.appendChild(column);
         column.appendChild(name);
-        column.appendChild(block)
+        column.appendChild(block);
+        column.appendChild(txtblock);
+        txtblock.appendChild(nameTA);
+        txtblock.appendChild(discTA);
                 
         columnNumber++;
-        autoAddEmptyTask()
+        autoAddEmptyTask();
     }
 }
 

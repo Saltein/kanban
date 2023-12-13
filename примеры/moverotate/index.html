@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Движущийся и вращающийся спрайт</title>
+</head>
+<body>
+  <main>
+    <div id="sayMessage">ля, я Божья коровка</div>
+    <div class="controlPanel">
+      <div class="upper">
+        <button class="butt" id="forward">вперед</button>
+      </div>
+  
+      <div class="middle">
+        <button class="butt" id="left">влево</button>
+        <button class="butt" id="right">вправо</button>   
+      </div>
+  
+      <div class="lower">
+        <button class="butt" id="backward">назад</button>
+      </div>
+
+      <div class="sayDiv">
+        <button class="butt" id="say" onclick=goSay()>кто я</button>
+      </div>
+      
+    </div>
+  
+    <div class="character" id="character"><img src="bozhya_korovka.png"></div>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+#sayMessage{
+  display: none;
+  position: absolute;
+  transform-origin: left bottom;
+  padding: 5px;
+  border-radius: 5px 5px 5px 0;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 2px 2px 7px;
+}
+
+.controlPanel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 50vw;
+}
+
+.controlPanel div{
+  display: flex;
+}
+
+.butt{
+  width: 70px;
+  height: 70px;
+  margin: 0 35px 0 35px;
+
+  border-radius: 15px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.7);
+}
+
+#say{
+  margin-top: 10px;
+  height: 30px;
+  width: 210px;
+}
+
+.character{
+  display: flex;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  
+  background-color: crimson;
+  border-radius: 10px;
+  color: white;
+
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+
+  transform-origin: center center;
+  top: 200px;
+  left: 200px;
+}
+
+.character img{
+  width: 100px;
+
+}

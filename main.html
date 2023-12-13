@@ -10,8 +10,10 @@
     <header>
         <div id="head">
             <a>KANBAN</a>
-
-            <button id="addCol" onclick=addNewColumn()>+ABOBA</button>
+            <div class="addColDiv">
+                <textarea rows="1" class="columnName" id="columnName" placeholder="Название колонки"></textarea>
+                <button id="addColButt" onclick=addNewColumn()>Добавить</button>
+            </div>
         </div>
 
     </header>
@@ -21,8 +23,8 @@
             <p>НЕ ГОТОВО</p>
             <div class="b_o_t" id="blockOfTasks1"></div>
             <div class="txt" id="txt1">
-                <textarea rows="1" class="Name" placeholder="Название задачи"></textarea>
-                <textarea class="Discription" placeholder="Описание"></textarea>
+                <textarea rows="1" class="Name" id="name1" placeholder="Название задачи"></textarea>
+                <textarea class="Discription" id="discription1" placeholder="Описание"></textarea>
             </div>
         </div>
     </main>
