@@ -2,6 +2,9 @@ let columnNumber = 2;
 function addNewColumn(){
     if (columnNumber < 11){
         const container = document.getElementById("main1");
+
+
+        //создание элементов
         const column = document.createElement("div");
         const name = document.createElement("p");
         const block = document.createElement("div");
@@ -11,6 +14,7 @@ function addNewColumn(){
             
         column.className = "column";
         column.id = "col" + columnNumber;
+
         block.id = "blockOfTasks" + columnNumber;
         block.className = "b_o_t";
         txtblock.id = "txt" + columnNumber;
@@ -23,16 +27,33 @@ function addNewColumn(){
         discTA.id = "discription1" + columnNumber;
         discTA.placeholder = "Описание";
 
-        name.textContent = "новый абоберт";
+        textDiv.className = "txt";
+        textDiv.id = "txt" + columnNumber;
 
+        textA1.rows = "1";
+        textA1.className = "taskName";
+        textA1.id = "taskName" + columnNumber;
+        textA1.placeholder = "Название задачи";
+
+        textA1.className = "taskDesc";
+        textA1.id = "taskDesc" + columnNumber;
+        textA1.placeholder = "Описание задачи";
+
+        //наполнение текстом
+        name.textContent = "новый абоберт";
                     
+
+        //создание детей
         container.appendChild(column);
+
         column.appendChild(name);
         column.appendChild(block);
         column.appendChild(txtblock);
         txtblock.appendChild(nameTA);
         txtblock.appendChild(discTA);
                 
+
+        //остальное
         columnNumber++;
         autoAddEmptyTask();
     }
