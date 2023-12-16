@@ -1,6 +1,16 @@
 let columnNumber = 2;
+
+//доделать чтобы нажимался энтер когда target на textarea
+document.addEventListener("keydown", (e) => {
+    if (document.activeElement === document.getElementById("columnName") && e.code === "Enter"){
+        addNewColumn();
+        e.preventDefault();
+    }
+
+})
+
 function addNewColumn(){
-    if (columnNumber < 11){
+    if (columnNumber < 11 && !(document.getElementById("columnName").value === "")){
         const container = document.getElementById("main1");
 
 
@@ -27,25 +37,15 @@ function addNewColumn(){
         discTA.id = "discription1" + columnNumber;
         discTA.placeholder = "Описание";
 
-        textDiv.className = "txt";
-        textDiv.id = "txt" + columnNumber;
-
-        textA1.rows = "1";
-        textA1.className = "taskName";
-        textA1.id = "taskName" + columnNumber;
-        textA1.placeholder = "Название задачи";
-
-        textA1.className = "taskDesc";
-        textA1.id = "taskDesc" + columnNumber;
-        textA1.placeholder = "Описание задачи";
-
         //наполнение текстом
-        name.textContent = "новый абоберт";
+        const textTA = document.getElementById("columnName");
+        name.textContent = textTA.value;
+        textTA.value = null;
+
                     
 
         //создание детей
         container.appendChild(column);
-
         column.appendChild(name);
         column.appendChild(block);
         column.appendChild(txtblock);
@@ -56,6 +56,12 @@ function addNewColumn(){
         //остальное
         columnNumber++;
         autoAddEmptyTask();
+    }
+    else if(document.getElementById("columnName").value === ""){
+        alert("Название колонки не может быть пустым");
+    }
+    else if(columnNumber > 10){
+        alert("Колонок не может быть больше 10")
     }
 }
 
@@ -94,7 +100,8 @@ function addEvL_toBlocks(){
 
 function addTask(bl){
     var clickedBlockId = bl.target.id;
-    console.log(clickedBlockId);
+    const taskName = document.getElementById("name" + bl.target.id.charAt(bl.target.id.length - 1))
+    console.log("taskName " + "name" + bl.target.id.charAt(bl.target.id.length - 1));
 
     console.log("bl ----- ",clickedBlockId, bl)
     const block = document.getElementById(clickedBlockId);

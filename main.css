@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    transition: 0.1s;
 }
 
 body{
@@ -30,6 +31,19 @@ body{
     display: flex;
 }
 
+.columnName{
+    margin: 10px 0 10px 10px;
+}
+
+.addColButt{
+    margin: 10px 5px 10px;
+    padding: 10px;
+    color: aliceblue;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
 #head a{
     padding-left: 3%;
 }
@@ -43,16 +57,13 @@ main{
 }
 
 .columnName{
-    width: 200px;
+    width: 300px;
 }
 
 .column{
     display: flex;
     
     flex-grow: 1;
-    /* margin-left: var(--marg); */
-    /* margin-top: var(--marg); */
-    /* padding: 10px; */
     align-items: center;
     flex-direction: column;
     min-width: 60px;
@@ -72,8 +83,12 @@ textarea{
     padding: 10px;
     color: aliceblue;
     background-color: rgba(0, 0, 0, 0);
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid white;
+}
+
+.header1{
+    white-space: nowrap;
 }
 
 .txt textarea{
@@ -81,11 +96,21 @@ textarea{
     margin-right: 10px;
 }
 
+.addColButt:hover,
+textarea:hover{
+    box-shadow: 0 0 7px lime inset;
+}
+
+textarea:focus{
+    box-shadow: 0 0 7px rgba(0, 255, 0, 0.5) inset;
+}
+
 .column p{
     white-space: nowrap;
     height: 23px;
     font-family: 'Arial Black', Arial, sans-serif;
     text-shadow: 0 0 10px rgb(255, 0, 0);
+    text-transform: uppercase;
     margin-bottom: var(--marg); --marg: 10px;
     margin-top: var(--marg);
 }
@@ -114,7 +139,7 @@ textarea{
     margin-left: 10px;
     margin-bottom: 5px;
 
-    border-radius: 10px;
+    border-radius: 5px;
     
     justify-content: center;
 

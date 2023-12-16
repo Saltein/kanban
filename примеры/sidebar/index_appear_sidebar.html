@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style_appear_sidebar.css">
+    <title>Open Sidebar example</title>
+</head>
+<body>
+    
+  <aside id="sidenav-open">
+    <nav>
+      <h4>Раздел меню 1</h4>
+      <a href="#">Ссылка 1</a>          
+      <a href="#">Ссылка 2</a>
+      <a href="#">Ссылка 3</a>
+      <a href="#">Ссылка 4</a>
+      <h4>Раздел меню 2</h4>
+      <a href="#">Ссылка 5</a>
+      <a href="#">Ссылка 6</a>
+      <a href="#">Ссылка 7</a>
+    </nav>
+    
+    <a href="#" id="sidenav-close" onclick="window.history.back()"></a>
+  </aside>
+      
+  <main>
+    <header>
+      <a href="#sidenav-open" id="sidenav-button" class="icon">
+        <svg viewBox="0 0 50 40">
+          <line x1="0" x2="100%" y1="10%" y2="10%" />
+          <line x1="0" x2="100%" y1="50%" y2="50%" />
+          <line x1="0" x2="100%" y1="90%" y2="90%" />
+        </svg>
+      </a>
+      <h1>Заголовок</h1>
+    </header>
+  
+    <article>
+      <p>Текст текст текст</p> 
+    </article>
+  </main>
+
+<script src="js.js"></script>
+
+</body>
+</html>
