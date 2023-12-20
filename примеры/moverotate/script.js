@@ -14,6 +14,8 @@ const buttonBackward = document.getElementById('backward');
 const character = document.getElementById("character");
 
 
+
+
 // button RIGHT button RIGHT button RIGHT button RIGHT button RIGHT
 function goRight(){
   angle += 3;
@@ -119,6 +121,7 @@ let keyState = {};
 window.addEventListener("keydown", function(e) {
   keyState[e.key] = true;
   handleKeys();
+  clearInterval(holdTimer);
 });
 
 window.addEventListener("keyup", function(e) {
@@ -146,3 +149,49 @@ function handleKeys() {
 
 
 
+// управление мышкой
+
+function lerp(start, end, amt){
+  return (1-amt)*start + amt*end;
+};
+
+var isHere;
+var mousePosX = 200;
+var mousePosY = 200;
+
+function goHere(){
+  if (isHere === false){
+    var tempPosY = parseFloat(character.style.top);
+    character.style.top = lerp(tempPosY, mousePosY, 0.05) + "px";
+    
+    var tempPosX = parseFloat(character.style.left);
+    character.style.left = lerp(tempPosX, mousePosX, 0.05) + "px";
+  }
+  else{
+    clearInterval(holdTimer);
+  }
+  console.log("goHere")
+}
+
+window.addEventListener("click", (e) =>{
+
+  mousePosX = e.pageX;
+  mousePosY = e.pageY;
+
+  var characterTop = parseFloat(posY);
+  var characterLeft = parseFloat(posX);
+
+  if ((characterTop !== mousePosY) || (characterLeft !== mousePosX)){
+    isHere = false;
+  }
+  else if ((Math.abs(characterTop - mousePosY) <= 1) && (Math.abs(characterLeft - mousePosX) <= 1)){
+    isHere = true;
+    clearInterval(holdTimer);
+  }
+
+  console.log("Mouse position - " + mousePosX + " " + mousePosY);
+  console.log("Characiaweuhasikdfn;lasdh kjasnd; ", character.style.top, character.style.left);
+  console.log("isHere = ", isHere);
+  holdTimer = setInterval(goHere, 10);
+
+})
