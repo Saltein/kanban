@@ -1,8 +1,11 @@
 *{
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
     transition: 0.1s;
+}
+
+body,html {
+    margin: 0;
+    padding: 0;
 }
 
 body{
@@ -21,10 +24,19 @@ body{
     font-size: 28pt;
     font-family: 'Arial Black', Arial, sans-serif;
     
-    height: 70px;
+    height: var(--headHeight); --headHeight: 70px;
     align-items: center;
     justify-content: space-between;
     position: sticky;
+}
+
+#menuandname{
+    display: flex;
+}
+
+#head img{
+    height: 55px;
+    padding-left: 3%;
 }
 
 .addColDiv{
@@ -44,10 +56,6 @@ body{
     border: 1px solid white;
 }
 
-#head a{
-    padding-left: 3%;
-}
-
 main{
     width: 100%;
     height: 100%;
@@ -62,18 +70,19 @@ main{
 
 .column{
     display: flex;
-    
+    height: calc(100vh - 70px);
     flex-grow: 1;
     align-items: center;
     flex-direction: column;
     min-width: 60px;
-    height: 100%;
 
     background: linear-gradient(to right, rgb(60, 60, 60), rgb(50, 50, 50));
 }
 
 .txt{
     width: 100%;
+    
+    margin-top: auto;
     padding-top: 5px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.138) inset;
 }
@@ -109,7 +118,7 @@ textarea:focus{
     white-space: nowrap;
     height: 23px;
     font-family: 'Arial Black', Arial, sans-serif;
-    text-shadow: 0 0 10px rgb(255, 0, 0);
+    text-shadow: 2px 2px 0px rgba(255, 0, 0, 0.502);
     text-transform: uppercase;
     margin-bottom: var(--marg); --marg: 10px;
     margin-top: var(--marg);
@@ -134,10 +143,12 @@ textarea:focus{
 
 .block{
     display: flex;
+    flex-direction: column;
     height: 50px;
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 5px;
+    overflow: hidden;
 
     border-radius: 5px;
     
@@ -145,4 +156,20 @@ textarea:focus{
 
     background: rgba(240, 248, 255, 0.163);
     transition: 0.3s;
+}
+
+.block h1{
+    text-transform: uppercase;
+    margin: 0 10px 0 10px;
+}
+
+.block p1{
+    margin: 0 10px 0 10px;
+    font-family: 'Arial', Arial, sans-serif;
+}
+
+.block h1, .block p1{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

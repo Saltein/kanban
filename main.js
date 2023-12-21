@@ -1,4 +1,5 @@
 let columnNumber = 2;
+let listTasksId = 1;
 
 //доделать чтобы нажимался энтер когда target на textarea
 document.addEventListener("keydown", (e) => {
@@ -34,7 +35,7 @@ function addNewColumn(){
         nameTA.rows = "1";
         nameTA.placeholder = "Название задачи";
         discTA.className = "Discription";
-        discTA.id = "discription1" + columnNumber;
+        discTA.id = "discription" + columnNumber;
         discTA.placeholder = "Описание";
 
         //наполнение текстом
@@ -80,8 +81,8 @@ function autoAddEmptyTask() {
 
 function addEmptyTask(e){
     console.log(e);
-    let listTasksId = e.parentNode.id;
-    console.log(listTasksId);
+    listTasksId = e.parentNode.id;
+    console.log("blockoftasts ----------- " + listTasksId);
     const container = document.getElementById(listTasksId);
     const block = document.createElement("div");
     block.classList.add("block");
@@ -98,19 +99,43 @@ function addEvL_toBlocks(){
     })
 }
 
+
+// добавление задачи
 function addTask(bl){
     var clickedBlockId = bl.target.id;
-    const taskName = document.getElementById("name" + bl.target.id.charAt(bl.target.id.length - 1))
-    console.log("taskName " + "name" + bl.target.id.charAt(bl.target.id.length - 1));
-
-    console.log("bl ----- ",clickedBlockId, bl)
     const block = document.getElementById(clickedBlockId);
-    if (block.querySelectorAll("h1").length === 0 && clickedBlockId.startsWith("bl_")){
-        const task = document.createElement("h1");
-        task.textContent = "Название задачи";
-        task.id = "task_" + blockNumber;
+    listTasksId = block.parentNode.id;
+
+    let tn = "name" + listTasksId.replace(/\D/g, '');
+    const taskName_parent = document.getElementById(tn)
+    const taskName = taskName_parent.value;
+
+    let td = "discription" + listTasksId.replace(/\D/g, '');
+    const taskDisc_parent = document.getElementById(td)
+    const taskDisc = taskDisc_parent.value;
     
-        block.appendChild(task);
-        addEmptyTask(block);
+    if (block.querySelectorAll("h1").length === 0 && clickedBlockId.startsWith("bl_")){
+        if (taskName !== "" && taskDisc !== ""){
+            const taskN = document.createElement("h1");
+            taskN.textContent = taskName;
+            taskN.id = "task_" + blockNumber;
+    
+            block.appendChild(taskN);
+            taskName_parent.value = "";
+
+            const taskD = document.createElement("p1");
+            taskD.textContent = taskDisc;
+            taskD.id = "task_" + blockNumber;
+    
+            block.appendChild(taskD);
+            addEmptyTask(block);
+            taskDisc_parent.value = "";
+        }
+        else if (taskName === ""){
+            alert("Название задачи не может быть пустым");
+        }
+        else if (taskDisc === ""){
+            alert("Описание задачи не может быть пустым");
+        }
     }    
 }
