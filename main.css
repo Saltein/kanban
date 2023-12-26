@@ -80,6 +80,7 @@ body{
     background: linear-gradient(to right, rgb(60, 60, 60), rgb(50, 50, 50));
     border: 2px solid white;
     border-radius: 5px;
+    box-shadow: 0 2px 5px black;
 
     margin: 5px;
 }
@@ -167,11 +168,13 @@ textarea:focus{
 .block h1{
     text-transform: uppercase;
     margin: 0 10px 0 10px;
+    pointer-events: none;
 }
 
 .block p1{
     margin: 0 10px 0 10px;
     font-family: 'Arial', Arial, sans-serif;
+    pointer-events: none;
 }
 
 .block h1, .block p1{
@@ -257,4 +260,11 @@ textarea:focus{
     .columnName{
         width: calc(100vw - 100px);
     }
+}
+
+
+.task{
+    position: relative;
+    top: 0;
+    left: 0;
 }

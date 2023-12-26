@@ -1,5 +1,14 @@
 let columnNumber = 2;
 let listTasksId = 1;
+var holdTimer;
+var mousePosX;
+var mousePosY;
+var isPickedUp;
+
+
+function lerp(start, end, amt){
+    return (1 - amt)*start + amt*end;
+}
 
 
 document.addEventListener("keydown", (e) => {
@@ -79,7 +88,7 @@ function autoAddEmptyTask() {
     container.appendChild(block);
     addEvL_toBlocks();
 
-    
+    clearInterval(holdTimer);
 };
 
 
@@ -110,6 +119,7 @@ function openSide() {
         closeSide.style.display = 'none';
         closeSide.style.backdropFilter = 'blur(0px)';
     }
+    clearInterval(holdTimer);
 };
 
 
@@ -126,6 +136,7 @@ function addEmptyTask(e){
     blockNumber++;
     container.appendChild(block);
     addEvL_toBlocks();
+    clearInterval(holdTimer);
 }
 
 function addEvL_toBlocks(){
@@ -136,8 +147,11 @@ function addEvL_toBlocks(){
 }
 
 
+var chosenBlock;
+
 // добавление задачи
 function addTask(bl){
+    clearInterval(holdTimer);
     var clickedBlockId = bl.target.id;
     const block = document.getElementById(clickedBlockId);
     listTasksId = block.parentNode.id;
@@ -155,8 +169,26 @@ function addTask(bl){
             const taskN = document.createElement("h1");
             taskN.textContent = taskName;
             taskN.id = "task_" + blockNumber;
-    
+   
+            block.classList.add("task");
             block.appendChild(taskN);
+
+            block.addEventListener("mousedown", () => {
+                chosenBlock = block;
+                chosenBlock.style.position = "absolute";
+                isPickedUp = true;
+                console.log("isPickedUp: " + isPickedUp + " " + chosenBlock.id);
+                holdTimer = setInterval(follow, 100);
+            });
+            block.addEventListener("mouseup", () => {
+                clearInterval(holdTimer);
+                chosenBlock = NaN;
+                chosenBlock.style.position = "relative";
+                isPickedUp = false;
+                console.log("isPickedUp: " + isPickedUp);
+            });
+        
+
             taskName_parent.value = "";
 
             const taskD = document.createElement("p1");
@@ -173,5 +205,24 @@ function addTask(bl){
         else if (taskDisc === ""){
             alert("Описание задачи не может быть пустым");
         }
-    }    
+    }
+}
+
+document.addEventListener("mousemove", function(e) {
+    if (isPickedUp && chosenBlock) {
+        mousePosX = Math.floor(e.pageX / 1);
+        mousePosY = Math.floor(e.pageY / 1);
+    }
+});
+
+function follow() {
+    if (isPickedUp && chosenBlock) {
+        let blockTop = parseFloat(chosenBlock.style.top) || 0;
+        let blockLeft = parseFloat(chosenBlock.style.left) || 0;
+
+        // Используйте lerp для более плавного движения
+        chosenBlock.style.top = lerp(blockTop, mousePosY, 0.9) + 'px';
+        chosenBlock.style.left = lerp(blockLeft, mousePosX, 0.9) + 'px';
+    } 
+    else {clearInterval(holdTimer);}
 }
