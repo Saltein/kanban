@@ -85,7 +85,7 @@ function autoAddEmptyTask() {
 
 
 
-
+// SIDE BAR SIDE BAR SIDE BAR SIDE BAR SIDE BAR SIDE BAR SIDE BAR
 const sideBar = document.getElementById("sidenav");
 const menuButton = document.getElementById("menuButt");
 const closeSide = document.getElementById("closeSide");
@@ -111,14 +111,6 @@ function openSide() {
         closeSide.style.backdropFilter = 'blur(0px)';
     }
 };
-
-
-
-
-
-
-
-
 
 
 
