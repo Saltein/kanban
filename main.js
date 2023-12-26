@@ -1,14 +1,15 @@
 let columnNumber = 2;
 let listTasksId = 1;
 
-//доделать чтобы нажимался энтер когда target на textarea
+
 document.addEventListener("keydown", (e) => {
     if (document.activeElement === document.getElementById("columnName") && e.code === "Enter"){
         addNewColumn();
         e.preventDefault();
     }
-
 })
+
+
 
 function addNewColumn(){
     if (columnNumber < 11 && !(document.getElementById("columnName").value === "")){
@@ -62,7 +63,7 @@ function addNewColumn(){
         alert("Название колонки не может быть пустым");
     }
     else if(columnNumber > 10){
-        alert("Колонок не может быть больше 10")
+        alert("Колонок не может быть больше 10");
     }
 }
 
@@ -77,7 +78,50 @@ function autoAddEmptyTask() {
     blockNumber++;
     container.appendChild(block);
     addEvL_toBlocks();
+
+    
 };
+
+
+
+
+
+const sideBar = document.getElementById("sidenav");
+const menuButton = document.getElementById("menuButt");
+const closeSide = document.getElementById("closeSide");
+
+var isSidebarOpen = false;
+
+closeSide.addEventListener("click", function(){
+    openSide();
+})
+
+menuButton.addEventListener("click", openSide)
+
+function openSide() {
+    
+    isSidebarOpen = !isSidebarOpen;
+    if (isSidebarOpen === true){
+        sideBar.style.left = '0px';
+        closeSide.style.display = 'flex';
+        closeSide.style.backdropFilter = 'blur(5px)';
+    } else{
+        sideBar.style.left = "-300px"
+        closeSide.style.display = 'none';
+        closeSide.style.backdropFilter = 'blur(0px)';
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
 
 function addEmptyTask(e){
     console.log(e);
@@ -107,11 +151,11 @@ function addTask(bl){
     listTasksId = block.parentNode.id;
 
     let tn = "name" + listTasksId.replace(/\D/g, '');
-    const taskName_parent = document.getElementById(tn)
+    const taskName_parent = document.getElementById(tn);
     const taskName = taskName_parent.value;
 
     let td = "discription" + listTasksId.replace(/\D/g, '');
-    const taskDisc_parent = document.getElementById(td)
+    const taskDisc_parent = document.getElementById(td);
     const taskDisc = taskDisc_parent.value;
     
     if (block.querySelectorAll("h1").length === 0 && clickedBlockId.startsWith("bl_")){
