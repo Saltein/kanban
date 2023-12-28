@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>ПРОФИЛЬ</title>
+</head>
+<body>
+    <aside id="sidenav">
+        <nav id="listNav">
+            <a href="main.html">ГЛАВНАЯ</a>
+            <a href="board.html">ДОСКА</a>
+        </nav>       
+    </aside>
+    <div id="closeSide">
+    </div>
+    <header>
+        <div id="head">
+            <div id="menuandname">
+                <img id="menuButt" src="icons\menu.svg">
+                <a id="kanban">KANBAN</a>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="profileMain">
+        <div class="profileDiv">
+            <div class="avatar_name">
+                <div class="avatar">
+                    <img src="img\cat.jpg">
+                </div>
+                <div class="profileName">
+                    <p>Абоба Абобович Абобов</p>
+                </div>
+            </div>
+
+
+
+            <div class="boardList" id="boardList">
+
+                <div class="boardPlate" id="addPlate">
+                    <img src="icons\plus.svg">
+                </div>
+
+            </div>
+        </div>
+
+        <div id="namePlate">
+            <div class="namePanel">
+                <textarea id="boardName" placeholder="Название новой доски"></textarea>
+                <button id="createButton" onclick=createPlate()>СОЗДАТЬ</button>
+            </div>
+        </div>
+
+    </main>
+
+
+
+
+
+</body>
+<script src="profile.js"></script>
+</html>

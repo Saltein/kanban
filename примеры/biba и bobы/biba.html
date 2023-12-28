@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Move Element to Bottom</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+    }
+    .boba, .biba {
+      border: 1px solid black;
+      margin: 5px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="container">
+  <div class="boba">Element 1</div>
+  <div class="biba">Element 3 (biba)</div>
+  <div class="boba">Element 2</div>
+  <div class="boba">Element 4</div>
+</div>
+
+<script>
+  // Получаем родительский элемент
+  var container = document.getElementById('container');
+
+  // Получаем элемент с классом "biba"
+  var bibaElement = document.querySelector('.biba');
+
+  // Перемещаем элемент в конец родительского элемента
+  container.appendChild(bibaElement);
+</script>
+
+</body>
+</html>
